@@ -1,6 +1,7 @@
 import AuthProvider from "./context/auth-provider";
 import Dashboard from "./playground/hooks/context-demo/dashboard";
 import Login from "./playground/hooks/context-demo/login";
+import Profile from "./playground/hooks/context-demo/profile";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Login />
         <br />
         <Dashboard />
+        <Profile />
       </AuthProvider>
     </div>
   );
