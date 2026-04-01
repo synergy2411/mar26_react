@@ -1,7 +1,8 @@
 import { memo } from "react";
 
-function Child({ toggle, demoFn }) {
+function Child({ toggle, demoFn, friends }) {
   console.log("Child renders");
+  console.log("Friends : ", friends);
 
   return (
     <>

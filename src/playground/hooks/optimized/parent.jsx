@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useMemo, useState } from "react";
 import Child from "./child";
 
 function Parent() {
@@ -6,10 +6,10 @@ function Parent() {
 
   console.log("Parent renders");
 
-  const demoFn = useCallback(
-    () => console.log("Demo Called : ", toggle),
-    [toggle],
-  );
+  //   const demoFn = useCallback(() => console.log("Demo Called : "), []);
+  const demoFn = useMemo(() => () => console.log("Demo Called : "), []);
+
+  const friends = useMemo(() => ["Ross", "Monica", "Joey"], []);
 
   return (
     <>
@@ -18,7 +18,7 @@ function Parent() {
         Toggle
       </button>
       <hr />
-      <Child toggle={true} demoFn={demoFn} />
+      <Child toggle={true} demoFn={demoFn} friends={friends} />
     </>
   );
 }
