@@ -9,12 +9,15 @@ function Posts() {
     return <h1>Loading...</h1>;
   }
   if (isError) {
-    return <p>{isError.message}</p>;
+    return <p>Something went wrong!</p>;
   }
   return (
     <>
       <h1>Posts coming soon...</h1>
-      <ul>{data && data.map((post) => <li key={post.id}>{post.title}</li>)}</ul>
+      <ul>
+        {data.length > 0 &&
+          data.map((post) => <li key={post.id}>{post.title}</li>)}
+      </ul>
     </>
   );
 }
