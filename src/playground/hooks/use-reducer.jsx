@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 
 function counterReducer(state, action) {
   if (action.type === "INCREMENT") {
@@ -12,23 +12,24 @@ function counterReducer(state, action) {
     return { ...state, counter: state.counter - action.payload };
   } else if (action.type === "STORE_RESULT") {
     return { ...state, result: [...state.result, state.counter] }; // {...state} => {counter, result} || // [...state.result] => [1,10,11]
+  } else if (action.type === "DELETE_RESULT") {
+    return {
+      ...state,
+      result: state.result.filter((_, i) => action.payload !== i),
+    };
   }
   return state;
 }
 
 function UseReducer() {
-  const [toggle, setToggle] = useState(true);
   const [state, dispatch] = useReducer(counterReducer, {
     counter: 0,
     result: [],
   });
 
   return (
-    <>
+    <div className="text-center">
       <h1>Use Reducer Demo</h1>
-
-      <button onClick={() => setToggle(!toggle)}>Toggling</button>
-
       <h2>Counter: {state.counter}</h2>
       <button
         className="btn btn-primary"
@@ -69,14 +70,18 @@ function UseReducer() {
           </div>
           <ul className="list-group">
             {state.result.map((r, i) => (
-              <li className="list-group-item" key={i}>
+              <li
+                className="list-group-item mb-2"
+                onClick={() => dispatch({ type: "DELETE_RESULT", payload: i })}
+                key={i}
+              >
                 {r}
               </li>
             ))}
           </ul>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
