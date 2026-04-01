@@ -1,3 +1,4 @@
+import Posts from "./playground/hooks/custom/posts";
 import Parent from "./playground/hooks/optimized/parent";
 import UseReducer from "./playground/hooks/use-reducer";
 
@@ -6,7 +7,8 @@ function App() {
     <div>
       <h1>App works!</h1>
 
-      <Parent />
+      <Posts />
+      {/* <Parent /> */}
 
       {/* <UseReducer /> */}
 
