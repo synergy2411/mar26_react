@@ -1,19 +1,17 @@
-import AuthProvider from "./context/auth-provider";
-import Dashboard from "./playground/hooks/context-demo/dashboard";
-import Login from "./playground/hooks/context-demo/login";
-import Profile from "./playground/hooks/context-demo/profile";
+import UseReducer from "./playground/hooks/use-reducer";
 
 function App() {
   return (
     <div>
       <h1>App works!</h1>
+      <UseReducer />
 
-      <AuthProvider>
+      {/* <AuthProvider>
         <Login />
         <br />
         <Dashboard />
         <Profile />
-      </AuthProvider>
+      </AuthProvider> */}
     </div>
   );
 }
