@@ -9,9 +9,9 @@ function App() {
   return (
     <div>
       <h1>App works!</h1>
+      <Todos />
 
-      <Users />
-      {/* <Todos /> */}
+      {/* <Users /> */}
       {/* <AuthForm /> */}
       {/* <Posts /> */}
       {/* <Parent /> */}
