@@ -19,8 +19,17 @@ const todoSlice = createSlice({
   name: "todo",
   initialState,
   reducers: {
-    createTodo: () => {},
-    deleteTodo: () => {},
+    createTodo: (state, action) => {
+      let newTodo = {
+        id: "t00" + state.todos.length + 1,
+        label: action.payload,
+        status: "pending",
+      };
+      state.todos.push(newTodo);
+    },
+    deleteTodo: () => {
+      // Delete one item from todos
+    },
   },
 });
 
