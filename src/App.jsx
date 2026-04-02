@@ -2,13 +2,15 @@ import AuthForm from "./playground/form/auth-form";
 import Posts from "./playground/hooks/custom/posts";
 import Parent from "./playground/hooks/optimized/parent";
 import UseReducer from "./playground/hooks/use-reducer";
+import Todos from "./playground/todos/todos";
 
 function App() {
   return (
     <div>
       <h1>App works!</h1>
 
-      <AuthForm />
+      <Todos />
+      {/* <AuthForm /> */}
       {/* <Posts /> */}
       {/* <Parent /> */}
 
