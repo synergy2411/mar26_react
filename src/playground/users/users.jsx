@@ -3,10 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchUsers } from "../../store/users/users-slice";
 
 function Users() {
-  const { users, isLoading, error } = useSelector((store) => {
-    console.log(store["users"]);
-    return store["users"];
-  });
+  const { users, isLoading, error } = useSelector((store) => store["users"]);
 
   const dispatch = useDispatch();
 
@@ -20,9 +17,31 @@ function Users() {
 
   return (
     <div className="container">
-      <h1>Users coming soon...</h1>
+      <h1>Users Data fetched from Remote Server</h1>
       {error.trim() !== "" && <p>{error} </p>}
-      <ul>
+
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Sr. No.</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Website</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((user) => (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+              <td>{user.website}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      {/* <ul>
         {users &&
           users.map((user) => (
             <li key={user.id}>
@@ -30,7 +49,7 @@ function Users() {
               <p>{user.email}</p>
             </li>
           ))}
-      </ul>
+      </ul> */}
     </div>
   );
 }
