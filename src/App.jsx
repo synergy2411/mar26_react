@@ -3,13 +3,15 @@ import Posts from "./playground/hooks/custom/posts";
 import Parent from "./playground/hooks/optimized/parent";
 import UseReducer from "./playground/hooks/use-reducer";
 import Todos from "./playground/todos/todos";
+import Users from "./playground/users/users";
 
 function App() {
   return (
     <div>
       <h1>App works!</h1>
 
-      <Todos />
+      <Users />
+      {/* <Todos /> */}
       {/* <AuthForm /> */}
       {/* <Posts /> */}
       {/* <Parent /> */}
