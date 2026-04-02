@@ -27,8 +27,11 @@ const todoSlice = createSlice({
       };
       state.todos.push(newTodo);
     },
-    deleteTodo: () => {
-      // Delete one item from todos
+    deleteTodo: (state, action) => {
+      const position = state.todos.findIndex(
+        (todo) => todo.id === action.payload,
+      );
+      state.todos.splice(position, 1);
     },
   },
 });
